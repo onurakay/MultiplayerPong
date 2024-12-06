@@ -22,6 +22,7 @@
 
 ## Future Plans
 
+- Reducing latency
 - Advanced Lobbies and Room Management
 - Global or local leaderboards for high scores.
 - Sound Effects
