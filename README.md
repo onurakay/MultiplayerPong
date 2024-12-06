@@ -2,7 +2,7 @@
 
 ---
 
-screenshot
+![multiplayer-pong-gameplay](https://github.com/user-attachments/assets/bb4e6a86-ea61-4a93-a37e-5982e35e1abf)
 
 ---
 
