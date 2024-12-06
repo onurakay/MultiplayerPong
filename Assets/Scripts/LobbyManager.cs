@@ -61,7 +61,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        statusText.text = "Joined Room: " + PhotonNetwork.CurrentRoom.Name;
+        statusText.text = $"Joined Room: {PhotonNetwork.CurrentRoom.Name} (ID: {PhotonNetwork.CurrentRoom.Name})";
         if (PhotonNetwork.CurrentRoom.PlayerCount < 2)
         {
             statusText.text += "\nWaiting for another player...";
@@ -72,7 +72,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            statusText.text = "Both players are ready!";
+            statusText.text = $"Both players are ready!\nRoom ID: {PhotonNetwork.CurrentRoom.Name}";
             StartGame();
         }
     }

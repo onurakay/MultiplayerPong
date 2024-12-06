@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsConnected)
         {
+            Debug.Log("spawning thingss");
             SpawnPaddle();
             if (PhotonNetwork.IsMasterClient)
             {
@@ -27,8 +28,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     static void OptimizePhotonSettings()
     {
-        PhotonNetwork.SendRate = 20;
-        PhotonNetwork.SerializationRate = 10;
+        PhotonNetwork.SendRate = 30;
+        PhotonNetwork.SerializationRate = 15;
     }
 
         private static void SetScreenResolution()

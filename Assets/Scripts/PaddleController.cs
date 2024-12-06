@@ -2,6 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PhotonTransformView))]
 public class PaddleController : MonoBehaviourPun, IPunObservable
 {
     public int playerNumber;

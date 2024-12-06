@@ -22,7 +22,7 @@ public class BallController : MonoBehaviourPun, IPunObservable
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // dead reckoning and smoothing for non-master clients
         if (!photonView.IsMine)
@@ -59,9 +59,9 @@ public class BallController : MonoBehaviourPun, IPunObservable
     void PerformDeadReckoning()
     {
         timeSinceLastUpdate += Time.deltaTime;
-        Vector2 predictedPosition = lastReceivedPosition + lastReceivedVelocity * timeSinceLastUpdate;
+        float latencyCompensation = PhotonNetwork.GetPing() * 0.001f;
+        Vector2 predictedPosition = lastReceivedPosition + lastReceivedVelocity * (timeSinceLastUpdate + latencyCompensation);
 
-        // predicted position
         rb.position = Vector2.Lerp(rb.position, predictedPosition, Time.deltaTime * 10);
     }
 
@@ -74,7 +74,7 @@ public class BallController : MonoBehaviourPun, IPunObservable
 
         if (stream.IsWriting)
         {
-            // Master client sends position and velocity
+            // !! master client sends position and velocity !!
             stream.SendNext(rb.position);
             stream.SendNext(rb.velocity);
         }
